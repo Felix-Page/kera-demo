@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/LucasPickering/slumber/main/collection.json
+
+name: Kera Demo API
+
+profiles:
+  local:
+    name: Local (Development)
+    default: true
+    data:
+      host: http://localhost:8080
+
+requests:
+  recipes:
+    name: Recipes
+    requests:
+      getRecipes:
+        name: Get All Recipes (Summary)
+        method: GET
+        url: "{{ host }}/api/recipes"
+        headers:
+          Accept: application/json
+
+      getRecipeById:
+        name: Get Recipe Details (Scaled Portions)
+        method: GET
+        url: "{{ host }}/api/recipes/{{ prompt(message='Recipe ID (Crepes: 22222222-2222-2222-2222-222222222201, Fondant: 22222222-2222-2222-2222-222222222202)', default='22222222-2222-2222-2222-222222222201') }}"
+        query:
+          servings: "{{ prompt(message='Servings (Portions)', default='4') }}"
+        headers:
+          Accept: application/json
+
+  ingredients:
+    name: Ingredients
+    requests:
+      getIngredients:
+        name: Get All Ingredients
+        method: GET
+        url: "{{ host }}/api/ingredients"
+        headers:
+          Accept: application/json
+
+      createIngredient:
+        name: Create Ingredient
+        method: POST
+        url: "{{ host }}/api/ingredients"
+        headers:
+          Content-Type: application/json
+          Accept: application/json
+        body:
+          type: json
+          data:
+            name: "{{ prompt(message='Ingredient Name', default='Sucre vanillé') }}"
+
+      deleteIngredient:
+        name: Delete Ingredient
+        method: DELETE
+        url: "{{ host }}/api/ingredients/{{ prompt(message='Ingredient ID to delete (e.g. 11111111-1111-1111-1111-111111111108)', default='11111111-1111-1111-1111-111111111108') }}"

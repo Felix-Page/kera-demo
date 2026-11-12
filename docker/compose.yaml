@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION:-16}
+    container_name: ${POSTGRES_CONTAINER_NAME:-kera-demo-postgres}
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-kera_demo}
+      POSTGRES_USER: ${POSTGRES_USER:-demo_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-demo_password}
+
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-demo_user} -d ${POSTGRES_DB:-kera_demo}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    name: ${POSTGRES_VOLUME_NAME:-kera_demo_postgres_data}

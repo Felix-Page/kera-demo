@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.fpage.kera.demo</groupId>
+    <artifactId>kera-demo</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Kera Demo</name>
+    <description>Showcase application demonstrating Clean Architecture with Kera in Spring Boot.</description>
+    <url>https://github.com/Felix-Page/kera-demo</url>
+    <inceptionYear>2026</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>fpage</id>
+            <name>Félix Page</name>
+            <email>felixpage94@gmail.com</email>
+            <url>https://github.com/Felix-Page</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/Felix-Page/kera-demo.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Felix-Page/kera-demo.git</developerConnection>
+        <url>https://github.com/Felix-Page/kera-demo/tree/main</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/Felix-Page/kera-demo/issues</url>
+    </issueManagement>
+
+    <modules>
+        <module>domain</module>
+        <module>application</module>
+        <module>web</module>
+        <module>persistence</module>
+        <module>bootstrap</module>
+    </modules>
+
+    <properties>
+        <org.postgresql.version>42.7.14</org.postgresql.version>
+        <fr.fpage.kera.version>0.1.0-SNAPSHOT</fr.fpage.kera.version>
+        <org.mapstruct.version>1.6.3</org.mapstruct.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>fr.fpage.kera</groupId>
+                <artifactId>kera</artifactId>
+                <version>${fr.fpage.kera.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${org.postgresql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>4.1.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.16.0</version>
+                    <configuration>
+                        <release>25</release>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${org.mapstruct.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
