@@ -4,7 +4,7 @@
 
 [![Java 25](https://img.shields.io/badge/Java-25-orange.svg)](https://openjdk.org/projects/jdk/25/)
 [![Spring Boot 4.1.2](https://img.shields.io/badge/Spring%20Boot-4.1.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Toolkit Kera](https://img.shields.io/badge/Toolkit-Kera%200.1.0--SNAPSHOT-blue.svg)](https://github.com/Felix-Page/Kera)
+[![Toolkit Kera](https://img.shields.io/badge/Toolkit-Kera%200.1.0-blue.svg)](https://github.com/Felix-Page/Kera)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 > **Application de démonstration de la boîte à outils d'architecture [Kera](https://github.com/Felix-Page/Kera).**  
@@ -35,7 +35,7 @@ Elle démontre comment construire une application modulaire et découplée où :
 Comme Kera est actuellement en phase de développement, commencez par compiler et installer la librairie dans votre cache Maven local (`~/.m2`) :
 
 ```bash
-git clone https://github.com/Felix-Page/Kera.git
+git clone --branch v0.1.0 https://github.com/Felix-Page/Kera.git
 cd Kera
 mvn clean install
 cd ..
@@ -63,7 +63,7 @@ Générez le JAR autonome et lancez l'application :
 
 ```bash
 mvn clean package -DskipTests
-java -jar bootstrap/target/bootstrap-0.1.0-SNAPSHOT.jar
+java -jar bootstrap/target/bootstrap-*.jar
 ```
 
 L'application démarre sur `http://localhost:8080`. Au démarrage, Liquibase applique automatiquement le schéma SQL et charge le jeu de données initial.

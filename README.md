@@ -4,7 +4,7 @@
 
 [![Java 25](https://img.shields.io/badge/Java-25-orange.svg)](https://openjdk.org/projects/jdk/25/)
 [![Spring Boot 4.1.2](https://img.shields.io/badge/Spring%20Boot-4.1.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Toolkit Kera](https://img.shields.io/badge/Toolkit-Kera%200.1.0--SNAPSHOT-blue.svg)](https://github.com/Felix-Page/Kera)
+[![Toolkit Kera](https://img.shields.io/badge/Toolkit-Kera%200.1.0-blue.svg)](https://github.com/Felix-Page/Kera)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 > **Showcase demonstration application for the [Kera](https://github.com/Felix-Page/Kera) architectural toolkit.**  
@@ -35,7 +35,7 @@ It shows how to build a modular, decoupled application where:
 Since Kera is currently in development, first compile and install the toolkit into your local Maven cache (`~/.m2`):
 
 ```bash
-git clone https://github.com/Felix-Page/Kera.git
+git clone --branch v0.1.0 https://github.com/Felix-Page/Kera.git
 cd Kera
 mvn clean install
 cd ..
@@ -63,7 +63,7 @@ Generate the standalone executable Fat JAR and start the application:
 
 ```bash
 mvn clean package -DskipTests
-java -jar bootstrap/target/bootstrap-0.1.0-SNAPSHOT.jar
+java -jar bootstrap/target/bootstrap-*.jar
 ```
 
 The application starts on `http://localhost:8080`. On startup, Liquibase automatically creates the database schema and seeds initial data.

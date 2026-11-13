@@ -6,7 +6,7 @@
 
     <groupId>fr.fpage.kera.demo</groupId>
     <artifactId>kera-demo</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
 
     <name>Kera Demo</name>
@@ -52,7 +52,7 @@
 
     <properties>
         <org.postgresql.version>42.7.14</org.postgresql.version>
-        <fr.fpage.kera.version>0.1.0-SNAPSHOT</fr.fpage.kera.version>
+        <fr.fpage.kera.version>0.1.0</fr.fpage.kera.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
     </properties>
 
